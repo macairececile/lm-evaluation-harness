@@ -1,0 +1,23 @@
+task: e3c-ner
+dataset_path: json
+dataset_name: null
+dataset_kwargs:
+  data_files:
+    test: /home/getalp/macairec/PARTAGES/corpus_eval/e3c-ner/test.json
+output_type: generate_until
+generation_kwargs:
+  do_sample: false
+  until:
+    - "\n"
+test_split: test
+description: "Instruction : Le texte suivant est extrait d'un recueil de récits cliniques. Identifie les entités nommées biomédicales.\n
+Format attendu : liste d'entités nommées sous forme de mots, sans chiffres, séparées par des virgules. Exemple : 'diabète, hypertension'."
+doc_to_text: "\nTexte : {{text}}\n"
+# gen_prefix: "Les entités nommées biomédicales sont : "
+doc_to_target: "{{ named_entity | join(', ') }}"
+should_decontaminate: true
+doc_to_decontamination_query: "{{text}}"
+metric_list:
+  - metric: !function utils.f1
+    aggregation: mean
+    higher_is_better: true

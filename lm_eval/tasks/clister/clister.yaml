@@ -1,0 +1,30 @@
+task: clister
+dataset_path: json
+dataset_name: null
+dataset_kwargs:
+  data_files:
+    test: /home/getalp/macairec/PARTAGES/corpus_eval/clister/clister_test.json
+output_type: generate_until
+generation_kwargs:
+  do_sample: false
+  max_new_tokens: 4
+  until:
+    - "\n"
+test_split: test
+doc_to_text: "Tâche : Évaluez la similarité sémantique entre deux phrases médicales.\n
+Score donné sur une échelle de 0.0 à 5.0 : \n
+- 0.0 correspond aux paires de phrases ne présentant qu'une similarité superficielle, comme les mots non spécifiques au domaine médical ou les mots vides.\n
+- 1.0 correspond aux paires de phrases dont la similarité n'est que superficielle, concernant au plus une entité médicale.\n
+- 2.0 correspond aux paires de phrases contenant des concepts médicaux présentant une faible similarité sémantique, mais pas de compatibilité clinique.\n
+- 3.0 correspond aux paires de phrases présentant une similarité sémantique sur plusieurs concepts médicaux les rendant partiellement compatibles sur le plan clinique.\n
+- 4.0 correspond aux paires de phrases présentant une similarité sémantique et une compatibilité clinique élevées.\n
+- 5.0 correspond aux paires de phrases présentant une grande similarité sémantique et une compatibilité clinique totale.\n
+Phrase 1 : {{id_1}}\nPhrase 2 : {{id_2}}\n"
+gen_prefix: "Le score de similarité est : "
+doc_to_target: "{{sim}}"
+should_decontaminate: true
+doc_to_decontamination_query: sim
+metric_list:
+  - metric: !function utils.spearman_corr
+    higher_is_better: true
+    aggregation:  !function utils.spearman_agg
