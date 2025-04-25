@@ -10,15 +10,9 @@ if [ "$#" -ne 3 ]; then
 fi
 
 # Get the args of the bash command line
-if [ "$#" -eq 2 ]; then
-    out_path="./results"
-    type_model=$1
-    m=$2
-else
-    out_path=$1
-    type_model=$2
-    m=$3
-fi
+out_path=$1
+type_model=$2
+m=$3
 
 # Create the output folder if necessary
 mkdir -p "$out_path"
