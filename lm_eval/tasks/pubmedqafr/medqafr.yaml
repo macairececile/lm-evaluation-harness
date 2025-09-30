@@ -3,7 +3,7 @@ dataset_path: json
 dataset_name: null
 dataset_kwargs:
   data_files:
-    test: /home/getalp/macairec/PARTAGES/corpus_eval/bio_instruct_qa_fr/PubMedQA.json
+    test: ../../../../data/processed/bio_instruct_qa_fr/PubMedQA.json
 output_type: multiple_choice
 test_split: test
 doc_to_text: !function utils_pubmedqafr.doc_to_text

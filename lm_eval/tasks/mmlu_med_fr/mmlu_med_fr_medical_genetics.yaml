@@ -3,7 +3,7 @@ dataset_path: json
 dataset_name: null
 dataset_kwargs:
   data_files:
-    test: /home/getalp/macairec/PARTAGES/corpus_eval/bio_instruct_qa_fr/MMLU_medical_genetics.json
+    test: ../../../../data/processed/bio_instruct_qa_fr/MMLU_medical_genetics.json
 test_split: test
 output_type: multiple_choice
 doc_to_text: !function utils_mmlu_med_fr.doc_to_text

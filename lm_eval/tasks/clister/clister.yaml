@@ -3,7 +3,7 @@ dataset_path: json
 dataset_name: null
 dataset_kwargs:
   data_files:
-    test: /home/getalp/macairec/PARTAGES/corpus_eval/clister/clister_test.json
+    test: ../../../../data/processed/clister/clister_test.json
 output_type: generate_until
 generation_kwargs:
   do_sample: false

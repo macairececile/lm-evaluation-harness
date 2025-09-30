@@ -3,7 +3,7 @@ dataset_path: json
 dataset_name: null
 dataset_kwargs:
   data_files:
-    test: /home/getalp/macairec/PARTAGES/corpus_eval/e3c-ner/test.json
+    test: ../../../../data/processed/e3c-ner/test.json
 output_type: generate_until
 generation_kwargs:
   do_sample: false
